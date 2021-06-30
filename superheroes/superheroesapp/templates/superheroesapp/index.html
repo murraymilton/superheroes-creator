@@ -12,7 +12,21 @@
     <title></title>
 </head>
 <body>
-
-
+<h1 class="fs-1">Superheroes</h1>
+<ul class="list-group list-group-flush">
+    {%for superhero in all_superheroes %}
+    <li class="list-group-item"><h2> {{superhero.superhero_name}}: <a href="{% url 'superheroesapp:display_data' superhero.id %}">{{superhero.superhero_name}} details</a>  </h2></li>
+    {% endfor %}
+</ul>
+    <form action="{%url 'superheroesapp:create_new_superhero' %}" method="post">
+        {% csrf_token %}
+        <input class="form-control" placeholder="name" type="text" name="name" id="name"><br>
+        <input class="form-control" placeholder="alter ego name" type="text" name="alter_ego" id="alter_ego"><br>
+       <input class="form-control" placeholder="primary superhero ability" type="text" name="primary_superhero_ability" id="primary_superhero_ability"><br>
+        <input class="form-control" placeholder="secondary superhero ability" type="text" name="secondary_superhero_ability" id="secondary_superhero_ability"><br>
+        <input class="form-control" placeholder="superhero catchphrase" type="text" name="superhero_catchphrase" id="superhero_catchphrase"><br>
+        <input class="form-control fs-2" type="submit" value="Add new superhero.">
+    </form>
+<img src="{% static 'mywebsite/images/superheroes.png' %}" class="rounded mx-auto d-block">
 </body>
 </html>
