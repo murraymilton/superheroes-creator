@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class SuperheroesappConfig(AppConfig):
+class SuperheroesAppConfig(AppConfig):
     name = 'superheroesapp'
